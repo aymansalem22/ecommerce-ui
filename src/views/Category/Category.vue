@@ -25,7 +25,7 @@ export default {
   components : {CategoryBox},
   data() {
     return {
-      baseURL : "https://limitless-lake-55070.herokuapp.com/",
+      baseURL : "http://localhost:8087/",
       categories : null,
     }
   },

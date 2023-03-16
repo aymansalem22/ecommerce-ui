@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="pt-3">Add new Product</h3>
+        <h4 class="pt-3">Add new Product</h4>
       </div>
     </div>
 
@@ -25,8 +25,8 @@
             <input type="text" class="form-control" v-model="description" required>
           </div>
           <div class="form-group">
-            <label>ImageURL</label>
-            <input type="url" class="form-control" v-model="imageURL" required>
+            <label>imageUrl</label>
+            <input type="url" class="form-control" v-model="imageUrl" required>
           </div>
           <div class="form-group">
             <label>Price</label>
@@ -41,28 +41,30 @@
 </template>
 
 <script>
-var axios=require('axios')
+var axios = require('axios')
 import swal from 'sweetalert';
-export default{
-    data(){
-        return{
-            categoryId : null,
-            name: null,
-            description: null,
-            imageURL : null,
-            price : null
-        }
-    },
-    props : ["baseURL","categories"],
-    methods:{
-async addProduct() {
+export default {
+  data(){
+    return {
+      categoryId : null,
+      name : null,
+      description : null,
+      imageUrl : null,
+      price : null,
+    }
+  },
+  props : ["baseURL", "categories"],
+  methods : {
+    async addProduct() {
       const newProduct = {
         categoryId : this.categoryId,
         name : this.name,
         description : this.description,
-        imageURL : this.imageURL,
-        price : this.price
+        price : this.price, 
+        imageUrl : this.imageUrl,
       }
+
+       
 
       await axios({
         method: 'post',
@@ -81,17 +83,17 @@ async addProduct() {
       })
       .catch(err => console.log(err));
     }
-
-    },
-    mounted(){
-
-    }
+  },
+  mounted() {
+  }
 }
 </script>
-<style scoper>
+
+<style scoped>
 h4 {
-    font-family: 'Robot', sans-serif;
-    color: #484848;
-    font-weight : 700;
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
 }
+
 </style>

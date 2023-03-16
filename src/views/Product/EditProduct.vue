@@ -25,8 +25,8 @@
             <input type="text" class="form-control" v-model="description" required>
           </div>
           <div class="form-group">
-            <label>ImageURL</label>
-            <input type="url" class="form-control" v-model="imageURL" required>
+            <label>imageUrl</label>
+            <input type="url" class="form-control" v-model="imageUrl" required>
           </div>
           <div class="form-group">
             <label>Price</label>
@@ -50,7 +50,7 @@ export default {
       categoryId : 0,
       name : null,
       description : null,
-      imageURL : null,
+      imageUrl : null,
       price : 0,
       productIndex : null
     }
@@ -63,7 +63,7 @@ export default {
         categoryId : this.categoryId,
         name : this.name,
         description : this.description,
-        imageURL : this.imageURL,
+        imageUrl : this.imageUrl,
         price : this.price
       }
       await axios({
@@ -94,7 +94,7 @@ export default {
     this.categoryId = this.products[this.productIndex].categoryId;
     this.name = this.products[this.productIndex].name;
     this.description = this.products[this.productIndex].description;
-    this.imageURL = this.products[this.productIndex].imageURL;
+    this.imageUrl = this.products[this.productIndex].imageUrl;
     this.price = this.products[this.productIndex].price;
     }
 }
