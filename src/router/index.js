@@ -9,6 +9,8 @@ import EditProduct from "../views/Product/EditProduct";
 import ShowDetails from "../views/Product/ShowDetails";
 import Signup from "../views/Signup";
 import Signin from "../views/Signin";
+import WishList from "../views/Product/WishList";
+import Cart from "../views/cart/Cart";
 
 const routes = [
   {
@@ -16,7 +18,6 @@ const routes = [
     name: "Home",
     component: Home,
   },
- 
   {
     path: "/admin/category/add",
     name: "AddCategory",
@@ -40,28 +41,38 @@ const routes = [
   {
     path: "/admin/product",
     name: "AdminProduct",
-    component: Product,
+    component: Product
   },
   {
-      path: "/admin/product/:id",
-      name: "EditProduct",
-      component: EditProduct,
+    path: "/admin/product/:id",
+    name: "EditProduct",
+    component: EditProduct,
   },
   {
     path : '/product/show/:id',
     name : 'ShowDetails',
     component: ShowDetails
   },
-{
-  path:'/signup',
-  name: 'Signup',
-  component: Signup
-},
-{
-  path:'/signin',
-  name: 'Signin',
-  component: Signin
-}
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
+  },
+  {
+    path: '/signin',
+    name: 'Signin',
+    component: Signin
+  },
+  {
+    path: '/wishlist',
+    name: 'WishList',
+    component: WishList
+  },
+  {
+    path : '/cart',
+    name : 'Cart',
+    component : Cart
+  },
 ];
 
 const router = createRouter({

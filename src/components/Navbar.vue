@@ -25,11 +25,10 @@
           </div>
         </div>
       </form>
-        </div>
-        <div>
     </div>
-
-  <!--      Admin drop down-->
+    <div>
+    </div>
+<!--      Admin drop down-->
     <li class="nav-item dropdown">
       <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin
@@ -46,10 +45,17 @@
           Accounts
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">WishList</router-link>
+          <router-link class="dropdown-item" v-else :to="{name : 'WishList'}" >WishList</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Log In</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Sign Up</router-link>
+          
           <a class="dropdown-item" v-if="token" href="#" @click="signout">Sign Out</a>
       </div>
+    </li>
+
+     <li class="nav-item">
+      <router-link class="text-light" :to="{name : 'Cart'}"><i class="fa fa-shopping-cart" style="font-size:36px"></i></router-link>
     </li>
   </nav>
 
@@ -60,12 +66,12 @@ import swal from 'sweetalert';
 export default {
   name : "Navbar",
   data() {
-    return {
-      token: null
-    }
+      return {
+          token: null
+      };
   },
   methods: {
-    signout() {
+      signout() {
           localStorage.removeItem('token');
           this.token = null;
           this.$router.push({name:'Home'});
@@ -76,7 +82,6 @@ export default {
           });
       }
   },
-
   mounted() {
     this.token = localStorage.getItem('token');
   }
