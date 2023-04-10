@@ -47,6 +47,7 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">WishList</router-link>
           <router-link class="dropdown-item" v-else :to="{name : 'WishList'}" >WishList</router-link>
+          <router-link class="dropdown-item" v-if="token" :to="{name : 'OrderHistory'}" >Order History</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Log In</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Sign Up</router-link>
           
